@@ -1,0 +1,11 @@
+Cell 4
+Button 3
+/~set-voice:1
+~disp-clearAll
+~disp-string:test
+hi there
+/~pause:3
+/~set-voice:2
+testing
+/~set-voice:3
+it worksd
