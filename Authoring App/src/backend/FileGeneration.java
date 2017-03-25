@@ -141,7 +141,7 @@ public class FileGeneration {
 		for (int i = 0; curr.getChild().size() > i; i++ ){
 			String temp = "tag" + Integer.toString(tag);
 			spareStack.push(temp);
-			content.append("/~skip-button:" + Integer.toString(tag)+ " " + temp + "\n");
+			content.append("/~skip-button:" + Integer.toString(i)+ " " + temp + "\n");
 			tag++;
 		}
 		
