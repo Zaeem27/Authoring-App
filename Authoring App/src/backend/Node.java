@@ -1,55 +1,70 @@
 package backend;
 
 import java.util.ArrayList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class Node {
 
 	private String text;
-	private int level;
-	private ArrayList<Node> adj;
-	private int pause;
-	private int voice;
-	private String disp;
-	private boolean dispString;
+	private String tag;
+	private String info;
+	private int value;
+	private ArrayList<Node> child;
+	private ArrayList<Node> parent;
+	private Node merge;
 
 	
-	public Node(String text, ArrayList<Node> adj, int level, int pause, int voice,
-			String disp, boolean dispString){
+	public Node(String text, String tag, String info, ArrayList<Node> parent){
 		this.text = text;
-		this.level = level;
-		this.adj = adj;
-		this.pause = pause;
-		this.voice = voice;
-		this.disp = disp;
-		this.dispString = dispString;
+		this.tag = tag;
+		this.info = info;
+		this.parent = parent;
+		child = new ArrayList<Node>();
+		if (info.matches("[0-9]+")){
+			this.value = Integer.valueOf(info);
+		}
+		
+	}
+	
+	
+	public Node(String text, String tag, String info, ArrayList<Node> parent, Node merge){
+		this(text, tag, info, parent);
+		this.merge = merge;
+		
 	}
 
 	public String getText() {
 		return text;
 	}
 	
-	public ArrayList<Node> getAdj() {
-		return adj;
+	public ArrayList<Node> getChild() {
+		return child;
 	}
 	
-	public int getLevel(){
-		return level;
+	public ArrayList<Node> getParent() {
+		return parent;
 	}
 	
-	public int getPause(){
-		return pause;
+	public String getTag(){
+		return tag;
+	}
+
+	public int getValue(){
+		return value;
 	}
 	
-	public int getVoice(){
-		return voice;
+	public String getInfo(){
+		return info;
 	}
 	
-	public String getDisp(){
-		return disp;
+	public Node getMerge(){
+		return merge;
 	}
 	
-	public boolean getDispString(){
-		return dispString;
+	public void setMerge(Node merge){
+		this.merge = merge;
 	}
-	
+
+
 }
