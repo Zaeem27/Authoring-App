@@ -1,15 +1,17 @@
 package backend;
-import javax.sound.sampled.*;
-import java.io.*;
-import java.util.Scanner;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
- 
+import java.io.File;
+import java.io.IOException;
+
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.TargetDataLine;
+
 public class SoundRecorder {
-    // record duration, in milliseconds
-  // static final long RECORD_TIME = 60000;  // 1 minute
- 
+
     // path of the wav file
     private File wavFile;
     private String waveFileName = "RecordAudio.wav";
@@ -57,18 +59,27 @@ public class SoundRecorder {
             line.start();   // start capturing
  
             System.out.println("Start capturing...");
- 
-            AudioInputStream ais = new AudioInputStream(line);
- 
-            System.out.println("Start recording...");
- 
-            // start recording
-            wavFile = new File(waveFileName);
-            AudioSystem.write(ais, fileType, wavFile);
- 
+            Runnable runner = new Runnable() {
+            	 public void run() {
+                AudioInputStream ais = new AudioInputStream(line);
+     
+                System.out.println("Start recording...");
+     
+                // start recording
+                try {
+                    wavFile = new File(waveFileName);
+                    AudioSystem.write(ais, fileType, wavFile);               	
+                }
+                catch (IOException e) {
+                	
+                }
+             	 }
+        	};
+            Thread captureThread = new Thread(runner);
+            captureThread.start();
         } catch (LineUnavailableException ex) {
             ex.printStackTrace();
-        } catch (IOException ioe) {
+        } catch (Exception ioe) {
             ioe.printStackTrace();
         }
     }
@@ -82,80 +93,8 @@ public class SoundRecorder {
         System.out.println("Finished");
     }
     
-    /**
-     * Entry to run the program
-     */
- 
     public void setWaveFileName(String waveName) {
     	waveFileName = new String(waveName);
     }
- public void signalFinishRecording(int signal) {
-	 if (signal ==0 )
-		 finish = 0;
-	 else
-		 finish = 1;
-	 
- }
-    public static void main(String[] args) {
-    	 
-        final SoundRecorder recorder = new SoundRecorder();
-        // creates a new thread that waits for a specified
-        // of time before stopping
-        
-        
-  /*      
-        Thread stopper = new Thread(new Runnable() {
-            public void run() {
-        		System.out.println("Press any key to end recording..");
-            	Scanner scanner = new Scanner(System.in);
-            	if(scanner.hasNext()) {
-            	   scanner.next();
-                   recorder.finish();            	   
-            	}
-            	scanner.close();
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-                
-            }
-        });
- */
-
-        System.out.println("Press any key to start recording");
-        try {
-			System.in.read();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-//        stopper.start();
-        ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
-        exec.scheduleAtFixedRate(new Runnable() {
-          @Override
-          public void run() {
-      		System.out.println("Press any key to end recording.." + finish);
-      		
-      		if (finish == 1) {
-      			recorder.finish();
-      		}
-      		
-          	Scanner scanner = new Scanner(System.in);
-          	if(scanner.hasNext()) {
-          	   //scanner.next();
-                 recorder.finish();            	   
-          	}
-          	scanner.close();
-          	
-          	
-          }
-        }, 0, 100, TimeUnit.MILLISECONDS);
-               
-       // start recording
-        recorder.start();
-        exec.shutdownNow();
-    }
+ 
 }
-  
