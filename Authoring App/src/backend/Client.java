@@ -1,5 +1,6 @@
 package backend;
 
+import java.awt.GridLayout;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -9,6 +10,9 @@ public class Client {
 		// TODO Auto-generated method stub
 		
 		//String text, String tag, String info, ArrayList<Node> parent
+		  MainFrame main = new MainFrame();
+          main.setLayout(new GridLayout());
+          main.setVisible(true);
 		Node node1 = new Node ("This is test", "no tag", "no info", null);
 		
 		

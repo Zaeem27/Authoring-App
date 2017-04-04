@@ -1,21 +1,35 @@
-Cell 20
-Button 10
-/~repeat
-Beginning of the branch!!!!!!!!!!!!!!!!!!!!!!!!!!
-/~endrepeat
+Cell 3
+Button 3
+This is test
 /~reset-buttons
-/~repeat-button:2
 /~skip-button:0 tag0
 /~skip-button:1 tag1
 /~user-input
 /~tag0
-SUBbranch left no action !!!!!!!!!!!!!!!!!!!!!!!!!!
+/~pause:3
+Branch 1
 /~skip:jump0
 /~tag1
-/~pause:10
-SubBranch right pause!!!!!!!!!!!!!!!!!!!!!!!!!!
+/~disp-clearAll
+/~disp-string:test
+Branch 2
+/~reset-buttons
+/~skip-button:0 tag2
+/~skip-button:1 tag3
+/~user-input
+/~tag2
+/~disp-clearAll
+/~disp-string:test
+Branch 2suba
+/~skip:jump1
+/~tag3
+/~disp-clearAll
+/~disp-string:test
+Branch 2sub B
+/~skip:jump1
+/~jump1
+SubBranch Merge
 /~skip:jump0
 /~jump0
-/~set-voice:2
-merge node and change voice!!!!!!!!!!!!!!!!!!!!!!!!!!
+Branch Merge
 
