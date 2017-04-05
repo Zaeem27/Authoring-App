@@ -145,7 +145,21 @@ public class FileFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Node[] nodes = new Node[1000];
        try{
+    	   
+    	   if (NodePanel.i == 0){
+      		   throw new IllegalArgumentException("File generation failed. There are no nodes" );
+      	   }
+    	   
+    	   
+    	   if (!jTextField1.getText().matches("[0-9]+")){
+    		   throw new IllegalArgumentException("File generation failed. Cell number specified is not a valid value." );
+    	   }
     	int numCell = Integer.parseInt(jTextField1.getText());
+    	
+    	 if (!jTextField2.getText().matches("[0-9]+")){
+  		   throw new IllegalArgumentException("File generation failed. Button number specified is not a valid value." );
+  	   }
+    	
     	int numButton = Integer.parseInt(jTextField2.getText());
     	
     	
@@ -156,24 +170,62 @@ public class FileFrame extends javax.swing.JFrame {
 		ArrayList <String> text = new ArrayList <String> ();
 		
         for (int j=0;j<NodePanel.i; j++) {
+        	if (j>0 && !nP[j].getParentFieldRef().getText().matches("[0-9][0-9 ]*") ){
+        		throw new IllegalArgumentException("File generation failed. Specified parent at ID " + j + " format is wrong." );
+        	}
+        	
+        	
+        	if (!nP[j].getMergeFieldRef().getText().matches("[0-9]*")){
+        		throw new IllegalArgumentException("File generation failed. Specified merge node at ID " + j + " format is wrong." );
+        	}
+        	
+        	
+       /* 	if (!nP[j].getTextFieldRef().getText().toLowerCase().matches("[a-z ]*")){
+        		throw new IllegalArgumentException("File generation failed. Text at ID " + j + " format is wrong." );
+        	}*/
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	
         	tag.add(nP[j].getComboBoxRef().getSelectedItem().toString());
-        	info.add(nP[j].getInfoFieldRef().getText());
-        	text.add(nP[j].getTextFieldRef().getText());
-        	if (nP[j].getMergeFieldRef().getText().trim().matches("")){
+        	
+        	if (nP[j].getInfoFieldRef().getText().matches("")){
+        		info.add(null);
+        	}
+        	
+        	else{
+        		info.add(nP[j].getInfoFieldRef().getText());
+        	}
+        	
+        	if (nP[j].getTextFieldRef().getText().matches("")){
+        		text.add(null);
+        	}
+        	else{
+        		text.add(nP[j].getTextFieldRef().getText());
+        	}
+        	if (nP[j].getMergeFieldRef().getText().matches("")){
 
         		mergeNode.add(null);
         	}
         	else {
         		mergeNode.add(Integer.parseInt(nP[j].getMergeFieldRef().getText()));
         	}
-        	String [] temp = nP[j].getParentFieldRef().getText().trim().split(" ");
+        	String [] temp = nP[j].getParentFieldRef().getText().split(" ");
         	Integer [] temp1 = new Integer [temp.length];
-        	if (j ==0){
+        	if (j == 0){
         		parent.add(null);
         	}
         	else{
         		for (int counter = 0; counter <temp.length; counter++){
         			temp1[counter] = Integer.parseInt(temp[counter]);
+        			
+        			if (temp1 [counter] >= j){
+        				throw new IllegalArgumentException("File generation failed. Specified parent at ID " + j + " is greater or equal to current ID." );
+        			}
     
         		}
         		parent.add(temp1.clone());
@@ -189,9 +241,14 @@ public class FileFrame extends javax.swing.JFrame {
             nodes[i]= new Node(text, tag, info, null);*/
         }
         FileGenerationSimplified.createFile(numButton, numCell, mergeNode, parent, tag, info, text);
-    	}catch (Exception e) {
+    	}catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+       
+       catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
 		}
         
     }//GEN-LAST:event_jButton2ActionPerformed

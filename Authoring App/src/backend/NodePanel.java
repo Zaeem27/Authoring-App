@@ -22,7 +22,7 @@ public class NodePanel extends javax.swing.JPanel {
     static int i=0;
     public NodePanel() {
         initComponents();
-        jLabel1.setText(Integer.toString(i));
+        jLabel1.setText("ID: " +Integer.toString(i));
         i++;
     }
     

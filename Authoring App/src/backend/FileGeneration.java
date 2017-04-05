@@ -56,7 +56,7 @@ public class FileGeneration {
 		
 		content.add(generateText(start));
 		
-		PrintStream writer = new PrintStream(new File ("output5.txt"));
+		PrintStream writer = new PrintStream(new File ("output.txt"));
 		for (String s: content){
 			writer.println(s);
 			System.out.println(s);
