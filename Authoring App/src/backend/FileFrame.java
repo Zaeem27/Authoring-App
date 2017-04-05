@@ -1,9 +1,12 @@
 package backend;
 
+
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Point;
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -41,7 +44,7 @@ public class FileFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setText("Add Scenario");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,24 +66,25 @@ public class FileFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(171, 171, 171)
-                        .addComponent(jButton2)
-                        .addGap(0, 373, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(69, 69, 69))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)))
+                    .addComponent(jButton2))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
@@ -92,7 +96,14 @@ public class FileFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        nP[i] = new NodePanel();
+        
+       JPanel jP = new JPanel();
+      
+       jP.setLayout(new BoxLayout(jP,BoxLayout.PAGE_AXIS));
+       for (int i=0; i<1000;i++){
+           nP[i] = new NodePanel();
+           jP.add(nP[i]);
+       }
        
         jScrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
        
@@ -103,8 +114,8 @@ public class FileFrame extends javax.swing.JFrame {
         
       
       
-      jScrollPane1.getViewport().setPreferredSize(new Dimension(1000,1000));
-      jScrollPane1.getViewport().add(nP[i]);
+     // jScrollPane1.getViewport().setPreferredSize(new Dimension(1000,1000));
+      jScrollPane1.getViewport().add(jP);
       jScrollPane1.repaint();
    //   jScrollPane1.getViewport().add(nP[i], BorderLayout.NORTH);
       i++;
@@ -114,9 +125,7 @@ public class FileFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        for (int j=0; j<NodePanel.i;j++) {
-            
-        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

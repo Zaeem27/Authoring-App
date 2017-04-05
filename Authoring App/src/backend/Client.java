@@ -1,24 +1,54 @@
 package backend;
 
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import javax.swing.JScrollPane;
 
 public class Client {
 
+    
+    //MainFrame frame;
+    
+    
+  
+  
+  
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
+                
+                MainFrame main = new MainFrame();
+                main.setLayout(new GridLayout());
+                main.setVisible(true);
 		
+                
+               // Panel test_panel = new Panel();
+             // MainFrame  main = new MainFrame();
+             /*  JScrollPane sP = new JScrollPane();
+                sP.setPreferredSize(new Dimension(985, 475));
+                sP.setBackground(Color.red);
+               // main.add(sP, BorderLayout.CENTER);
+               
+               
+              main.add(sP);
+                Panel p = new Panel();
+                sP.add(p);*/
+               // main.add("Test Panel", test_panel);
+              //  main.repaint();
+              //  main.setVisible(true);
+               // main.revalidate();
+               
 		//String text, String tag, String info, ArrayList<Node> parent
-		  MainFrame main = new MainFrame();
-          main.setLayout(new GridLayout());
-          main.setVisible(true);
-		Node node1 = new Node ("This is test", "no tag", "no info", null);
+		/*Node node1 = new Node ("This is test", "no tag", "no info", null);
 		
 		
 		FileGeneration test = new FileGeneration (node1);
 		test.setButtonNum(3);
-		test.setCellNum(3);
+		test.setCellNum(3);*/
 		
 		/*ArrayList node2p = new ArrayList <Node>();
 		node2p.add(node1);
@@ -40,7 +70,7 @@ public class Client {
 		Node node5 = new Node ("this text should be repeated", "Repeat", "does not matter", node5p);
 		test.addNode(node5);*/
 		
-		
+		/*
 		ArrayList node2p = new ArrayList <Node>();
 		node2p.add(node1);
 		Node node2 = new Node ("Branch 1", "Pause", "3", node2p);
@@ -77,7 +107,7 @@ public class Client {
 		
 		node1.setMerge(node8);
 		node3.setMerge(node7);
-		test.generateFile();
+		test.generateFile();*/
 	}
 
 }

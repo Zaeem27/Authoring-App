@@ -1,5 +1,6 @@
 package backend;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
@@ -133,8 +134,8 @@ public class FileGeneration {
 	
 	private String branch(Node curr) {
 		StringBuilder content = new StringBuilder(); 
+		content.append(curr.getText() + "\n");
 		if (!curr.getTag().matches("Repeat")) {
-			content.append(curr.getText() + "\n");
 			content.append("/~reset-buttons\n");
 		}
 
@@ -160,7 +161,7 @@ public class FileGeneration {
 			content.append(generateText(curr.getChild().get(i)));
 			content.append("/~skip:" + skipName.peek());
 			if (i == curr.getChild().size()-1 ){
-				content.append("/~" + skipName.pop());
+				content.append("/~" + skipName.pop() + "\n");
 				content.append(generateText(mergeNode.pop()));
 			}
 		}

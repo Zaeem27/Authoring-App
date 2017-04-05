@@ -1,5 +1,4 @@
-package backend;
-
+/*
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -18,19 +17,19 @@ public class FileGenerationTest {
 
 	@Test
 	public void testFileGeneration() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 	@Test
 	public void testAddNode() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 
 
 	@Test
 	public void testGenerateFile() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
-}
+}*/
