@@ -1,5 +1,9 @@
 package backend;
 
+
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,6 +24,27 @@ public class NodePanel extends javax.swing.JPanel {
         initComponents();
         jLabel1.setText(Integer.toString(i));
         i++;
+    }
+    
+    
+    public JTextField getTextFieldRef() {
+        return jTextField5;
+    }
+    
+    public JComboBox getComboBoxRef() {
+        return jComboBox1;
+    }
+    
+    public JTextField getInfoFieldRef() {
+        return jTextField4;
+    }
+    
+    public JTextField getParentFieldRef() {
+        return jTextField2;
+    }
+    
+    public JTextField getMergeFieldRef() {
+        return jTextField3;
     }
 
     /**
@@ -44,9 +69,9 @@ public class NodePanel extends javax.swing.JPanel {
 
         jLabel1.setText("jLabel1");
 
-        jTextField2.setText("Parents");
+        jTextField2.setText("Parent Nodes");
 
-        jTextField3.setText("Children");
+        jTextField3.setText("Merge Nodes");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pause", "Voice", "Display String", "Sound", "Repeat" }));
 
@@ -70,10 +95,10 @@ public class NodePanel extends javax.swing.JPanel {
                         .addComponent(jTextField5))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(128, 128, 128)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(106, 106, 106)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
