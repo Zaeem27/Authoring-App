@@ -3,7 +3,7 @@ package backend;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class Remove {
+public class FileGenerationSimplified {
 
 	
 	public static void createFile (int numButton, int numCell, ArrayList<Integer> mergeNode, ArrayList<Integer[]> parent, ArrayList<String> tag, ArrayList<String> info, ArrayList<String> text) throws FileNotFoundException{

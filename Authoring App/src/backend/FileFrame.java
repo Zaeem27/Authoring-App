@@ -6,6 +6,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Point;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -140,15 +143,56 @@ public class FileFrame extends javax.swing.JFrame {
  
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Node[] nodes = new Node[1000];
-        
+        //Node[] nodes = new Node[1000];
+       try{
+    	int numCell = Integer.parseInt(jTextField1.getText());
+    	int numButton = Integer.parseInt(jTextField2.getText());
+    	
+    	
+    	ArrayList <Integer> mergeNode = new ArrayList <Integer> ();
+		ArrayList <Integer[]> parent = new ArrayList <Integer[]> ();
+		ArrayList <String> tag = new ArrayList <String> ();
+		ArrayList <String> info = new ArrayList <String> ();
+		ArrayList <String> text = new ArrayList <String> ();
+		
         for (int j=0;j<NodePanel.i; j++) {
-            String text = nP[i].getTextFieldRef().getText();
+        	tag.add(nP[j].getComboBoxRef().getSelectedItem().toString());
+        	info.add(nP[j].getInfoFieldRef().getText());
+        	text.add(nP[j].getTextFieldRef().getText());
+        	if (nP[j].getMergeFieldRef().getText().trim().matches("")){
+
+        		mergeNode.add(null);
+        	}
+        	else {
+        		mergeNode.add(Integer.parseInt(nP[j].getMergeFieldRef().getText()));
+        	}
+        	String [] temp = nP[j].getParentFieldRef().getText().trim().split(" ");
+        	Integer [] temp1 = new Integer [temp.length];
+        	if (j ==0){
+        		parent.add(null);
+        	}
+        	else{
+        		for (int counter = 0; counter <temp.length; counter++){
+        			temp1[counter] = Integer.parseInt(temp[counter]);
+    
+        		}
+        		parent.add(temp1.clone());
+        	}
+    
+        	
+        	        	
+           /* String text = nP[i].getTextFieldRef().getText();
             String tag = nP[i].getComboBoxRef().getSelectedItem().toString();
             String info = nP[i].getInfoFieldRef().getText();
-            nodes[i]= new Node(text, tag, info, null);
+            String parentNum = nP[i].getParentFieldRef().getText();
+            String mergeNode = nP[i].getMergeFieldRef().getText(); 
+            nodes[i]= new Node(text, tag, info, null);*/
         }
-       
+        FileGenerationSimplified.createFile(numButton, numCell, mergeNode, parent, tag, info, text);
+    	}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

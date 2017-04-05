@@ -1,35 +1,22 @@
-Cell 3
-Button 3
-This is test
+Cell 5
+Button 8
+/~repeat
+start
+/~endrepeat
 /~reset-buttons
+/~repeat-button:2
 /~skip-button:0 tag0
 /~skip-button:1 tag1
 /~user-input
 /~tag0
-/~pause:3
-Branch 1
+/~pause:1
+leg
 /~skip:jump0
 /~tag1
-/~disp-clearAll
-/~disp-string:test
-Branch 2
-/~reset-buttons
-/~skip-button:0 tag2
-/~skip-button:1 tag3
-/~user-input
-/~tag2
-/~disp-clearAll
-/~disp-string:test
-Branch 2suba
-/~skip:jump1
-/~tag3
-/~disp-clearAll
-/~disp-string:test
-Branch 2sub B
-/~skip:jump1
-/~jump1
-SubBranch Merge
+/~pause:2
+rt
 /~skip:jump0
 /~jump0
-Branch Merge
+/~pause:3
+end
 
