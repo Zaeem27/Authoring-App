@@ -1,5 +1,6 @@
-Cell 3
-Button 4
-/~pause:1
-Good Morning
+Cell 1
+Button 1
+/~disp-clearAll
+/~disp-string:F
+fff
 

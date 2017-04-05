@@ -184,7 +184,32 @@ public class FileFrame extends javax.swing.JFrame {
         		throw new IllegalArgumentException("File generation failed. Text at ID " + j + " format is wrong." );
         	}*/
         	
+        	if(nP[j].getComboBoxRef().getSelectedItem().toString().matches("Sound")){
+        		if ( !nP[j].getInfoFieldRef().getText().matches("[A-Za-z0-9]+.wav")){
+        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  Should be name of file followed by .wav" );
+        		}
+        	}
         	
+        	if(nP[j].getComboBoxRef().getSelectedItem().toString().matches("Pause")){
+        		if ( !nP[j].getInfoFieldRef().getText().matches("[0-9]+") || Integer.parseInt(nP[j].getInfoFieldRef().getText()) == 0){
+        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  Should be integer greater that 0" );
+        		}
+        	}
+        	
+        	if(nP[j].getComboBoxRef().getSelectedItem().toString().matches("Voice")){
+        		if ( !nP[j].getInfoFieldRef().getText().matches("[1-4]")){
+        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  Should be integer from 1-4 inclusive" );
+        		}
+        	}
+        	
+        	if(nP[j].getComboBoxRef().getSelectedItem().toString().matches("Display String")){
+        		if ( !nP[j].getInfoFieldRef().getText().matches("[a-z ]+")){
+        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  String to be displayed not supported. Should be lower case letters or space only." );
+        		}
+        		if ( nP[j].getInfoFieldRef().getText().length() > numCell){
+        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  String to be displayed length greater than cell number." );
+        		}
+        	}
         	
         	
         	
