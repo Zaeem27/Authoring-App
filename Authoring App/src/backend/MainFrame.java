@@ -95,6 +95,7 @@ FileFrame frame;
         
         frame = new FileFrame();
         frame.setSize(478, 625);
+        frame.setResizable(false);
         NodePanel.i=0;
         frame.setVisible(true);
         
@@ -113,7 +114,6 @@ FileFrame frame;
         // TODO add your handling code here:
         String storeAllString="";
         LoadForm loadForm = new LoadForm();
-        loadForm.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         loadForm.setVisible(true);
          try{    
           FileReader read = new FileReader("output.txt");

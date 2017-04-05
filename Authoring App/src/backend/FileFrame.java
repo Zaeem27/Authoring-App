@@ -33,6 +33,8 @@ public class FileFrame extends javax.swing.JFrame {
      */
     public FileFrame() {
         initComponents();
+        jButton1.setText("Create Node");
+        jButton2.setText("Save");
     }
 
     /**
@@ -273,12 +275,18 @@ public class FileFrame extends javax.swing.JFrame {
         FileGenerationSimplified.createFile(numButton, numCell, mergeNode, parent, tag, info, text);
     	}catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
+			//System.out.println(e.getMessage());
+                        ErrorForm eF = new ErrorForm();
+                        eF.getTextAreaRef().setText(e.getMessage());
+                        eF.setVisible(true);
 		}
        
        catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
+			//System.out.println(e.getMessage());
+                        ErrorForm eF = new ErrorForm();
+                        eF.getTextAreaRef().setText(e.getMessage());
+                        eF.setVisible(true);
 		}
         
     }//GEN-LAST:event_jButton2ActionPerformed
