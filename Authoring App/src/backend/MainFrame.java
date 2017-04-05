@@ -3,6 +3,8 @@ package backend;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.FileReader;
+import java.util.Scanner;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -37,6 +39,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +57,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Load File");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,9 +71,11 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addGap(70, 70, 70))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,7 +83,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -95,6 +108,29 @@ FileFrame frame;
         AudioFrame aF = new AudioFrame();
         aF.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String storeAllString="";
+        LoadForm loadForm = new LoadForm();
+        loadForm.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        loadForm.setVisible(true);
+         try{    
+          FileReader read = new FileReader("output.txt");
+          Scanner scan = new Scanner(read);
+             while(scan.hasNextLine()){
+              String temp=scan.nextLine()+"\n";
+              storeAllString=storeAllString+temp;
+             }
+             //textArea.setText(storeAllString);
+             loadForm.getTextAreaRef().setText(storeAllString);
+      }
+        catch (Exception exception)
+         {
+         exception.printStackTrace();
+         }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,5 +170,6 @@ FileFrame frame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }

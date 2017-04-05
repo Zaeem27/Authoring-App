@@ -1,6 +1,0 @@
-Cell 1
-Button 1
-/~disp-clearAll
-/~disp-string:F
-fff
-
