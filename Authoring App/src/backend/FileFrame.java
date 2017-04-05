@@ -91,12 +91,20 @@ public class FileFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     NodePanel[] nP = new NodePanel[1000];
 
+    JPanel jP = new JPanel();
+    
     int i=0;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        
-        
+    	jP.setLayout(new BoxLayout(jP,BoxLayout.PAGE_AXIS));
+    	nP[i] = new NodePanel();
+    	jP.add(nP[i]);
+    	jScrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+    	jScrollPane1.getViewport().add(jP);
+        jScrollPane1.repaint();
+        i++;
+       /* 
        JPanel jP = new JPanel();
       
        jP.setLayout(new BoxLayout(jP,BoxLayout.PAGE_AXIS));
@@ -108,17 +116,11 @@ public class FileFrame extends javax.swing.JFrame {
         jScrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
        
         
-            
         
-        
-        
-      
-      
-     // jScrollPane1.getViewport().setPreferredSize(new Dimension(1000,1000));
       jScrollPane1.getViewport().add(jP);
-      jScrollPane1.repaint();
-   //   jScrollPane1.getViewport().add(nP[i], BorderLayout.NORTH);
-      i++;
+      jScrollPane1.repaint();*/
+   
+      
        
         
     }//GEN-LAST:event_jButton1ActionPerformed
