@@ -9,6 +9,7 @@ import java.awt.Point;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -114,7 +115,10 @@ public class FileFrame extends javax.swing.JFrame {
         
         jP.setLayout(new BoxLayout(jP,BoxLayout.PAGE_AXIS));
     	nP[i] = new NodePanel();
+            nP[i].visibility();
     	jP.add(nP[i]);
+    	jP.add(Box.createRigidArea(new Dimension(0,6)));
+    
     	jScrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     	jScrollPane1.getViewport().add(jP);
         jScrollPane1.repaint();

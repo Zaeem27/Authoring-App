@@ -82,12 +82,13 @@ SoundRecorder recorder;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         recorder = new SoundRecorder();
+        recorder.setWaveFileName(jTextField1.getText());
         recorder.start();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        recorder.setWaveFileName(jTextField1.getText());
+        
         recorder.finish();
     }//GEN-LAST:event_jButton2ActionPerformed
 
