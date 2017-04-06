@@ -7,7 +7,6 @@ package backend;
  */
 
 /**
- *
  * @author Zaeem
  */
 public class AudioFrame extends javax.swing.JFrame {
@@ -77,20 +76,20 @@ public class AudioFrame extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 SoundRecorder recorder;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         recorder = new SoundRecorder();
-        recorder.setWaveFileName(jTextField1.getText());
+        recorder.setWaveFileName(jTextField1.getText() +".wav");
         recorder.start();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
         recorder.finish();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
     /**
      * @param args the command line arguments
