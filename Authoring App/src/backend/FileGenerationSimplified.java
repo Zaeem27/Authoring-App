@@ -14,7 +14,7 @@ public class FileGenerationSimplified {
 				text.add(i, " ");
 			}
 			
-			if (info.get(i) == null && (tag.get(i).matches("Repeat") || tag.get(i).matches("Select"))){
+			if (info.get(i) == null && (tag.get(i).matches("No Tag") || tag.get(i).matches("Select"))){
 				info.remove(i);
 				info.add(i, " ");
 			}
