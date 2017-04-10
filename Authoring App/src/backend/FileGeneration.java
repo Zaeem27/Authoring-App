@@ -14,6 +14,8 @@ public class FileGeneration {
 	private int tag = 0;
 	private int skip = 0;
 	
+	private ArrayList<String> contentTest; //for testing purpose
+	
 	private Stack <Node> mergeNode = new Stack <Node>();
 	//private Stack <Node> branchNode = new Stack <Node>();
 	private Stack <String> tagName = new Stack <String>();
@@ -61,6 +63,7 @@ public class FileGeneration {
 			writer.println(s);
 			System.out.println(s);
 		}
+		contentTest=content; //for testing purpose
 	}
 
 	private String generateText(Node start) {
@@ -169,6 +172,22 @@ public class FileGeneration {
 	}
 	
 	
+	//The below methods are for test cases.
 	
+	public Node getStart(){
+		return start;
+	}
+	
+	public int getButtonNum(){
+		return buttonNum;
+	}
+	
+	public int getCellNum(){
+		return buttonNum;
+	}
+	
+	public ArrayList<String> getContentTest(){
+		return contentTest;
+	}
 	
 }

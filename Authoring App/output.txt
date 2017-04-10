@@ -1,1 +1,37 @@
+Cell 3
+Button 3
+This is test
+/~reset-buttons
+/~skip-button:0 tag0
+/~skip-button:1 tag1
+/~skip-button:2 tag2
+/~user-input
+/~tag0
+/~pause:3
+Testing pause
+/~disp-clearAll
+/~disp-string:display this
+Testing output
+/~sound:test.wav
+fwefewfew
+/~repeat
+this text should be repeated
+/~endrepeat
+/~reset-buttons
+/~repeat-button:0
+/~user-input
+/~skip:jump1
+/~tag1
+/~pause:3
+Branch 1
+/~skip:jump1
+/~tag2
+/~disp-clearAll
+/~disp-string:test
+Branch 2
+/~disp-clearAll
+/~disp-string:test
+Branch 2suba
+/~skip:jump1
+/~jump1
 
