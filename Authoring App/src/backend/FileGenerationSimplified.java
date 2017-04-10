@@ -23,7 +23,7 @@ public class FileGenerationSimplified {
 		
 		for (int i = 0; i < info.size(); i++){
 			if (info.get(i) == null){
-				throw new IllegalArgumentException("An infomation box is empty when it shouldn't be empty.");
+				throw new IllegalArgumentException("A tag information textbox is empty when it shouldn't be empty.");
 			}	
 		}
 		

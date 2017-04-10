@@ -49,7 +49,7 @@ public class FileGeneration {
 		ArrayList<String> content = new ArrayList<String>();
 		
 		if (buttonNum <= 0 || cellNum <= 0){
-			throw new IllegalArgumentException("Invalid button or cell number.");
+			throw new IllegalArgumentException("Invalid button or cell number specified.");
 		}
 		content.add("Cell " + String.valueOf(cellNum));
 		content.add("Button " + String.valueOf(buttonNum));

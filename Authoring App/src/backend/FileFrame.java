@@ -154,7 +154,7 @@ public class FileFrame extends javax.swing.JFrame {
        try{
     	   
     	   if (NodePanel.i == 0){
-      		   throw new IllegalArgumentException("File generation failed. There are no nodes" );
+      		   throw new IllegalArgumentException("File generation failed. There are no nodes." );
       	   }
     	   
     	   
@@ -178,12 +178,12 @@ public class FileFrame extends javax.swing.JFrame {
 		
         for (int j=0;j<NodePanel.i; j++) {
         	if (j>0 && !nP[j].getParentFieldRef().getText().matches("[0-9][0-9 ]*") ){
-        		throw new IllegalArgumentException("File generation failed. Specified parent at ID " + j + " format is wrong." );
+        		throw new IllegalArgumentException("File generation failed. Specified parent ID at ID " + j + " format is wrong." );
         	}
         	
         	
         	if (!nP[j].getMergeFieldRef().getText().matches("[0-9]*")){
-        		throw new IllegalArgumentException("File generation failed. Specified merge node at ID " + j + " format is wrong." );
+        		throw new IllegalArgumentException("File generation failed. Specified merge node ID at ID " + j + " format is wrong." );
         	}
         	
         	
@@ -199,13 +199,13 @@ public class FileFrame extends javax.swing.JFrame {
         	
         	if(nP[j].getComboBoxRef().getSelectedItem().toString().matches("Pause")){
         		if ( !nP[j].getInfoFieldRef().getText().matches("[0-9]+") || Integer.parseInt(nP[j].getInfoFieldRef().getText()) == 0){
-        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  Should be integer greater that 0" );
+        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  Should be an integer greater than 0." );
         		}
         	}
         	
         	if(nP[j].getComboBoxRef().getSelectedItem().toString().matches("Voice")){
         		if ( !nP[j].getInfoFieldRef().getText().matches("[1-4]")){
-        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  Should be integer from 1-4 inclusive" );
+        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  Should be an integer from 1-4 inclusive." );
         		}
         	}
         	
@@ -214,7 +214,7 @@ public class FileFrame extends javax.swing.JFrame {
         			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  String to be displayed not supported. Should be lower case letters or space only." );
         		}
         		if ( nP[j].getInfoFieldRef().getText().length() > numCell){
-        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  String to be displayed length greater than cell number." );
+        			throw new IllegalArgumentException("File generation failed. Tag infomation at ID " + j + " format is wrong.  String to be displayed length greater than cell number specified." );
         		}
         	}
         	
@@ -256,7 +256,7 @@ public class FileFrame extends javax.swing.JFrame {
         			temp1[counter] = Integer.parseInt(temp[counter]);
         			
         			if (temp1 [counter] >= j){
-        				throw new IllegalArgumentException("File generation failed. Specified parent at ID " + j + " is greater or equal to current ID." );
+        				throw new IllegalArgumentException("File generation failed. Specified parent ID at ID " + j + " is greater or equal to current ID." );
         			}
     
         		}
